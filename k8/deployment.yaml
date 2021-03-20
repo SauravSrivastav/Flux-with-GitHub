@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
       - name: Saurav
-        image: sauravsrivastav/webapp:v1
+        image: sauravsrivastav/paascoe:v1
         ports:
         - containerPort: 80
