@@ -23,11 +23,7 @@ Step2: Deploy Flux Into Your Cluster
 	env | grep GH
 	
 	Ø Deploy Flux using the fluxctl command:
-	fluxctl install \ 
-	--git-user=${GHUSER} \ 
-	--git-email=${GHUSER}@users.noreply.github.com \ 
-	--git-url=git@github.com:${GHUSER}/content-gitops \ 
-	--git-path=namespaces,k8 \ --namespace=flux | kubectl apply -f -
+     fluxctl install --git-user=${GHUSER} --git-email=${GHUSER}@users.noreply.github.com --git-url=git@github.com:${GHUSER}/Flux-with-GitHub --git-path=namespaces,k8 --git-branch=main --namespace=flux | kubectl apply -f -
 	
 Step3: Verify The Deployment and Obtain the RSA Key
 
@@ -39,7 +35,7 @@ Step3: Verify The Deployment and Obtain the RSA Key
 	fluxctl identity --k8s-fwd-ns flux
 	
 Note: Copy off the RSA key to implement in GitHub.
-
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDu6QjGaEL5/fEtPCYCIm3pQxAtJ+qdceTwpNObI8hW49AqJTwaU0mFetoRBsVvpWioazUz/QCEzc0tk01+n6G7Vg1LGCVWeWt9wjLkyJp99KIED9N2eUi83k5GQhgY6qfshRoGIdPSJ6l3WoWgYCfUUElHTS+D7cvK6JDYTAy/6mQMtwDoygHqc5WdLJONx2hJ2OTAKlZ7+wZj0q2PB5HGfGRQSCHAcZbEdKW5mppzDtThBynWIXPza+HBHTSPObmO0tK5BRcCwjQx+FAAmM7bxXsK1894Suxe/C6lpR8L4c3yM0wYUU4AJ1GDa5dcdr9Qk+5d4hOPT08KOZcgUTve3pgYAra4rJV99O6OyAg6rQB+iPx3xWShB8ZQy59OcluhWk5bTVipde0MjsGr+GwBx1T9ApJ/mrL8Ax8KnVqxja9xGsMk73jITrcjAZK+B7763sdYJQrk/47UwJcPsLF3xen0YBTXsvKNyNMDOM26EfLZZA+U7mY7UjaVIrjFmqk= root@flux-7bd9d4c66-flggh
 
 Step4: Implement the RSA Key in GitHub
 Use the GitHub User Interface to Add the RSA Key obtained as a Deploy Key in GitHub.
