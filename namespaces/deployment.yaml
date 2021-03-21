@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Saurav
+  namespace: test
+  labels:
+    app: Saurav
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: Saurav
+  template:
+    metadata:
+      labels:
+        app: Saurav
+    spec:
+      containers:
+      - name: Saurav
+        image: sauravsrivastav/webapp:v1
+        ports:
+        - containerPort: 80
